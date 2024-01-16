@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: your_db_name # データベース名を設定
+      POSTGRES_USER: your_user # ユーザー名を設定
+      POSTGRES_PASSWORD: your_password # パスワードを設定
+    ports:
+      - '5555:5432' # ポートをマッピング
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # データ永続化のためのボリューム
+
+volumes:
+  postgres_data:
